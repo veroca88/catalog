@@ -1,0 +1,81 @@
+.first {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  grid-template-areas:
+    "header"
+    "barleft"
+    "content"
+    "barright1"
+    "barright2"
+    "footer"
+}
+
+@media screen and (min-width: 600px) {
+  .first {
+    display: grid;
+    width: 100%;
+    height: 100vh;
+    grid-template-areas: 
+    "header header header"
+    "barleft content barright1"
+    "barleft content barright2"
+    "footer footer barright2";
+
+    grid-template-columns: 
+      [barleft-start] 2fr
+      [content-start content-end] 4fr
+      [right-start] 2fr
+      [right-end]
+      ;
+    grid-template-rows:
+      [header-start] 1fr
+      [main-start main-end] 4fr
+      [middle-start middle-end] 2fr
+      [footer-start footer-end] 1fr
+      [footer-end]
+      ;
+  }
+}
+  
+.header {
+  grid-area: header;
+  background-color: lightcyan;
+}
+
+.barleft {
+  grid-area: barleft;
+  /*grid-column: barleft-start / content-start;
+  grid-row: main-start / footer-start;*/
+  background-color: blueviolet;
+}
+
+.barright1 {
+  grid-area: barright1;
+  /*grid-column: right-start / right-end;
+  grid-row: main-start / main-end;*/
+  background-color: blue;
+}
+
+.barright2 {
+  grid-area: barright2;
+  /*grid-column: right-start / right-end;
+  grid-row: middle-start / span 2;*/
+  background-color: blanchedalmond;
+}
+
+.content {
+  grid-area: content;
+  /*grid-column: content-start /right-start;
+  grid-row: main-start / footer-start;*/
+  background-color: aqua;
+}
+
+.footer {
+  grid-area: footer;
+  /*grid-column: barleft-start / right-start;
+  grid-row: footer-start / footer-end;*/
+  background-color: rgb(33, 230, 213);
+}
+
+
